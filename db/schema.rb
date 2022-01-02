@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_02_204542) do
+ActiveRecord::Schema.define(version: 2022_01_02_214126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,41 @@ ActiveRecord::Schema.define(version: 2022_01_02_204542) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "cards", force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+    t.integer "price"
+    t.integer "damage"
+    t.string "color"
+    t.integer "cash"
+    t.integer "draw"
+    t.integer "heal"
+    t.integer "discard"
+    t.integer "discard_enemy"
+    t.integer "card_discarding_on_top"
+    t.integer "next_action_purchased_on_top"
+    t.integer "heal_for_all_champs"
+    t.integer "next_card_purchased_in_hand"
+    t.integer "life_of_champ"
+    t.integer "life_of_gard"
+    t.integer "sacrify"
+    t.boolean "choice"
+    t.integer "damage_for_all_champs"
+    t.boolean "combine"
+    t.string "damage_if_sacrify"
+    t.boolean "throw"
+    t.integer "knock_ou_champ"
+    t.integer "damage_for_other_green"
+    t.integer "damage_for_other_champ"
+    t.integer "champ_from_discarding_on_top"
+    t.integer "damage_for_other_gard"
+    t.integer "mobilize_champ"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_cards_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -59,4 +94,5 @@ ActiveRecord::Schema.define(version: 2022_01_02_204542) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "cards", "users"
 end
