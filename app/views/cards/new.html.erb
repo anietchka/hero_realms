@@ -1,0 +1,9 @@
+<h1>Créer une nouvelle carte</h1>
+<%= simple_form_for(@card) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :photo, as: :file %>
+  <%= f.input :collection, collection: Card::TYPE %>
+  <%= f.input :color, collection: Card::COLOR %>
+  <%= f.input :price %>
+  <%= f.submit "Créer la carte"%>
+<% end %>
