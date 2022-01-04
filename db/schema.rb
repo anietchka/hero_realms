@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_04_135533) do
+ActiveRecord::Schema.define(version: 2022_01_04_150538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2022_01_04_135533) do
     t.boolean "combine"
     t.string "damage_if_sacrify"
     t.boolean "throw"
-    t.integer "knock_ou_champ"
+    t.boolean "knock_ou_champ"
     t.integer "damage_for_other_green"
     t.integer "damage_for_other_champ"
     t.boolean "champ_from_discarding_on_top"
