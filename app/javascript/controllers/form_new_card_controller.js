@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["discardEnemyIfThrow", "collection", "secondQuestionIfObject", "noColor", "sacrifiable", "optionsIfSacrifiable", "isAChampion", "gard", "secondQuestionIfChampion", "lifeOfGard", "lifeOfChamp", "isAChoice", "isNoChoice", "choice", "combo", "optionsIfCombinable", "combineNotChampion"]
+  static targets = ["discardEnemyIfThrow", "collection", "secondQuestionIfObject", "noColor", "sacrifiable", "optionsIfSacrifiable", "isAChampion", "gard", "secondQuestionIfChampion", "lifeOfGard", "lifeOfChamp", "isAChoice", "isNoChoice", "choice", "combo", "optionsIfCombinable", "combineNotChampion", "combineNotChoice"]
 
   validateCollection(){
     if (this.collectionTarget.value === 'Objet') {
@@ -49,9 +49,11 @@ export default class extends Controller {
     if (this.choiceTarget.checked === true){
       this.isAChoiceTarget.classList.remove('d-none');
       this.isNoChoiceTarget.classList.add('d-none');
+      this.combineNotChoiceTarget.classList.add('d-none');
     } else {
       this.isAChoiceTarget.classList.add('d-none');
       this.isNoChoiceTarget.classList.remove('d-none');
+      this.combineNotChoiceTarget.classList.remove('d-none');
     }
   };
 
