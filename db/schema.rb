@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_04_131209) do
+ActiveRecord::Schema.define(version: 2022_01_04_135533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,6 +91,8 @@ ActiveRecord::Schema.define(version: 2022_01_04_131209) do
     t.integer "heal_if_choice"
     t.integer "discard_if_combine"
     t.boolean "next_card_purchased_on_top_if_combine"
+    t.boolean "gard"
+    t.boolean "champion"
     t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
