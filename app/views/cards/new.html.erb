@@ -14,6 +14,10 @@
       <%= f.input :throw, label: "Sacrifiable?", input_html: { data: { target: "form-new-card.sacrifiable",
                                                                               action: "change->form-new-card#validateSacrifiable"} } %>
     </div>
+    <div class="second-question-if-action d-none" data-form-new-card-target = 'secondQuestionIfAction'>
+      <%= f.input :color, label: "Couleur", collection: Card::COLOR %>
+      <%= f.input :price, label: "Valeur de la carte" %>
+    </div>
 
     <div class="second-question-if-champion d-none" data-form-new-card-target = 'secondQuestionIfChampion'>
       <%= f.input :color, label: "Couleur", collection: Card::COLOR %>
