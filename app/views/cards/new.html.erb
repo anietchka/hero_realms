@@ -2,7 +2,7 @@
 <div data-controller="form-new-card">
   <%= simple_form_for(@card) do |f| %>
     <div class="first-question" data-form-new-card-target = 'firstQuestion'>
-      <%= f.input :namen label: 'Nom' %>
+      <%= f.input :name, label: 'Nom' %>
       <%= f.input :photo, as: :file %>
       <%= f.input :collection, collection: Card::TYPE, input_html: { data: { target: "form-new-card.collection",
                                                                               action: "change->form-new-card#validateCollection"} } %>
@@ -10,7 +10,7 @@
     <div class="second-question-if-object d-none" data-form-new-card-target = 'secondQuestionIfObject'>
       <%= f.input :price, label: "Valeur de la carte" %>
       <%= f.input :cash, label: "Gain d'argent" %>
-      <%= f.input :damage, "Nombre de dégats" %>
+      <%= f.input :damage, label: "Nombre de dégats" %>
       <%= f.input :color, as: :hidden, input_html: { data: { target: "form-new-card.noColor"}} %>
       <%= f.input :throw, label: "Sacrifiable?", input_html: { data: { target: "form-new-card.sacrifiable",
                                                                               action: "change->form-new-card#validateSacrifiable"} } %>
