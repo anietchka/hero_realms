@@ -1,7 +1,6 @@
 <h1 >Créer une nouvelle carte</h1>
 <div data-controller="form-new-card">
   <%= simple_form_for(@card) do |f| %>
-    <div class="first-question" data-form-new-card-target = 'firstQuestion'>
       <%= f.input :name, label: 'Nom' %>
       <%= f.input :photo, as: :file %>
       <%= f.input :collection, collection: Card::TYPE, input_html: { data: { target: "form-new-card.collection",
@@ -31,45 +30,58 @@
       <%= f.input :choice, as: :boolean, checked_value: true, unchecked_value: false, label: "A un choix proposé?", input_html: { data: { target: "form-new-card.choice",
                                                                                                                                     action: "change->form-new-card#validateIfIsChoice"} }  %>
       <div data-form-new-card-target = 'isNoChoice'>
-      <%= f.input :cash, label: "Nombre d'or gagnés" %>
-      <%= f.input :damage, label: "Nombre de dégats infligés" %>
-      <%= f.input :heal, label: "Nombre de points vie gagnés" %>
-      <%= f.input :draw, label: "Nombre de cartes à piocher" %>
-      <%= f.input :discard, label: "Nombre de cartes à defausser" %>
-      <%= f.input :discard_enemy, label: "Nombre de cartes dont l'ennemi doit se defausser" %>
-      <%= f.input :heal_for_all_champs, label: "Nombre de points vie gagnés pour chaque champion" %>
-      <%= f.input :damage_for_all_champs, label: "Nombre de dégats infligés pour chaque champion" %>
-      <%= f.input :damage_for_other_champ, label: "Nombre de dégats infligés pour chaque autre champion" %>
-      <%= f.input :damage_for_other_gard, label: "Nombre de dégats infligés pour chaque autre garde" %>
-      <%= f.input :damage_if_sacrify, label: "Nombre de dégats infligés si une carte est sacrifiée" %>
-      <%= f.input :damage_for_other_green, label: "Nombre de dégats infligés pour chaque autre carte verte" %>
-      <%= f.input :card_discarding_on_top, as: :boolean, checked_value: true, unchecked_value: false, label: "Prendre une carte de la defausse et la mettre dans le deck" %>
-      <%= f.input :knock_ou_champ, as: :boolean, checked_value: true, unchecked_value: false, label: "Asommer un champion" %>
-      <%= f.input :champ_from_discarding_on_top, as: :boolean, checked_value: true, unchecked_value: false, label: "Champion de la defausse au dessus du deck" %>
+        <%= f.input :cash, label: "Nombre d'or gagnés" %>
+        <%= f.input :damage, label: "Nombre de dégats infligés" %>
+        <%= f.input :heal, label: "Nombre de points vie gagnés" %>
+        <%= f.input :draw, label: "Nombre de cartes à piocher" %>
+        <%= f.input :discard, label: "Nombre de cartes à defausser" %>
+        <%= f.input :discard_enemy, label: "Nombre de cartes dont l'ennemi doit se defausser" %>
+        <%= f.input :heal_for_all_champs, label: "Nombre de points vie gagnés pour chaque champion" %>
+        <%= f.input :damage_for_all_champs, label: "Nombre de dégats infligés pour chaque champion" %>
+        <%= f.input :damage_for_other_champ, label: "Nombre de dégats infligés pour chaque autre champion" %>
+        <%= f.input :damage_for_other_gard, label: "Nombre de dégats infligés pour chaque autre garde" %>
+        <%= f.input :damage_if_sacrify, label: "Nombre de dégats infligés si une carte est sacrifiée" %>
+        <%= f.input :damage_for_other_green, label: "Nombre de dégats infligés pour chaque autre carte verte" %>
+        <%= f.input :card_discarding_on_top, as: :boolean, checked_value: true, unchecked_value: false, label: "Prendre une carte de la defausse et la mettre dans le deck" %>
+        <%= f.input :knock_ou_champ, as: :boolean, checked_value: true, unchecked_value: false, label: "Asommer un champion" %>
+        <%= f.input :champ_from_discarding_on_top, as: :boolean, checked_value: true, unchecked_value: false, label: "Champion de la defausse au dessus du deck" %>
       </div>
 
       <div class="d-none" data-form-new-card-target = 'isAChoice'>
+        <%= f.input :damage_if_choice, label: "Nombre de dégats infligés" %>
+        <%= f.input :cash_if_choice, label: "Nombre d'or gagnés" %>
+        <%= f.input :heal_if_choice, label: "Nombre de points vie gagnés" %>
+        <%= f.input :heal_for_all_champs_if_choice, label: "Nombre de points vie gagnés pour chaque champion" %>
       </div>
+      <%= f.input :combine, as: :boolean, checked_value: true, unchecked_value: false, label: "A un combo?", input_html: { data: { target: "form-new-card.combo",
+                                                                                                                                      action: "change->form-new-card#validateIfCombo"} }  %>
+
     </div>
 
     <div class="sacrifiable d-none" data-form-new-card-target = 'optionsIfSacrifiable'>
       <%= f.input :damage_if_throw, label: "Nombre de dégats si sacrifiée" %>
-      <%= f.input :discard_enemy_if_throw, label: "Nombre de cartes defaussées par l'ennemi si sacrifiée" %>
+      <div class="" data-form-new-card-target = 'discardEnemyIfThrow'>
+        <%= f.input :discard_enemy_if_throw, label: "Nombre de cartes defaussées par l'ennemi si sacrifiée" %>
+      </div>
     </div>
+
+
 
     <div class="combinable d-none" data-form-new-card-target = 'optionsIfCombinable'>
       <%= f.input :discard_enemy_if_combine, label: "Nombre de cartes dont l'adversaire se defausse si combine" %>
       <%= f.input :draw_if_combine, label: "Nombre de cartes a piocher si combine" %>
-      <%= f.input :cash_if_combine, label: "Nombre d'or si combine" %>
-      <%= f.input :damage_if_combine, label: "Nombre de degats si combine" %>
-      <%= f.input :discard_if_combine, label: "Nombre de carte dont vous vous deffausez si combine" %>
+      <%= f.input :damage_if_combine, label: "Nombre de degats infligés si combine" %>
+      <%= f.input :discard_if_combine, label: "Nombre de carte dont vous vous defaussez si combine" %>
       <%= f.input :heal_if_combine, label: "Nombre de points vie gagnés si combine" %>
       <%= f.input :heal_for_all_champs_if_combine, label: "Nombre de points vie gagnée pour chaque champion si combine" %>
-      <%= f.input :next_action_purchased_on_top_if_combine, as: :boolean, checked_value: true, unchecked_value: false, label: "Prochaine Action acquise au dessus du deck si combine?" %>
-      <%= f.input :mobilize_champ_if_combine, as: :boolean, checked_value: true, unchecked_value: false, label: "Mobiliser un champion si combine" %>
-      <%= f.input :knock_out_champ_if_combine, as: :boolean, checked_value: true, unchecked_value: false, label: "Assomer un champion si combine" %>
       <%= f.input :next_card_purchased_on_top_if_combine, as: :boolean, checked_value: true, unchecked_value: false, label: "Prochaine carte acquise au dessus du deck si combine" %>
-      <%= f.input :next_card_purchased_in_hand_if_combine, as: :boolean, checked_value: true, unchecked_value: false, label: "Prochaine carte acquise au dessus du deck si combine" %>
+      <div data-form-new-card-target = 'combineNotChampion'>
+        <%= f.input :cash_if_combine, label: "Nombre d'or si combine" %>
+        <%= f.input :next_action_purchased_on_top_if_combine, as: :boolean, checked_value: true, unchecked_value: false, label: "Prochaine Action acquise au dessus du deck si combine?" %>
+        <%= f.input :mobilize_champ_if_combine, as: :boolean, checked_value: true, unchecked_value: false, label: "Mobiliser un champion si combine" %>
+        <%= f.input :knock_out_champ_if_combine, as: :boolean, checked_value: true, unchecked_value: false, label: "Assomer un champion si combine" %>
+        <%= f.input :next_card_purchased_in_hand_if_combine, as: :boolean, checked_value: true, unchecked_value: false, label: "Prochaine carte acquise dans la main si combine" %>
+      </div>
     </div>
 
     <%= f.submit "Créer la carte"%>

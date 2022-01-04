@@ -1,20 +1,32 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["firstQuestion", "collection", "secondQuestionIfObject", "noColor", "sacrifiable", "optionsIfSacrifiable", "isAChampion", "gard", "secondQuestionIfChampion", "lifeOfGard", "lifeOfChamp", "isAChoice", "isNoChoice"]
+  static targets = ["discardEnemyIfThrow", "collection", "secondQuestionIfObject", "noColor", "sacrifiable", "optionsIfSacrifiable", "isAChampion", "gard", "secondQuestionIfChampion", "lifeOfGard", "lifeOfChamp", "isAChoice", "isNoChoice", "choice", "combo", "optionsIfCombinable", "combineNotChampion"]
 
   validateCollection(){
     if (this.collectionTarget.value === 'Objet') {
       this.secondQuestionIfObjectTarget.classList.remove('d-none');
       this.secondQuestionIfChampionTarget.classList.add('d-none');
+      this.discardEnemyIfThrowTarget.classList.add('d-none');
+      this.optionsIfSacrifiableTarget.classList.add('d-none');
+      this.optionsIfCombinableTarget.classList.add('d-none');
       this.noColorTarget.value = 'Aucune';
       console.log("C'est une carte Objet");
     } else if (this.collectionTarget.value === 'Action') {
+      this.optionsIfSacrifiableTarget.classList.add('d-none');
+      this.optionsIfCombinableTarget.classList.add('d-none');
       console.log("C'est une carte Action");
-    } else { console.log("C'est une carte Champion");
+    } else if (this.collectionTarget.value === 'Champion') {
+      console.log("C'est une carte Champion");
       this.secondQuestionIfChampionTarget.classList.remove('d-none');
       this.secondQuestionIfObjectTarget.classList.add('d-none');
+      this.optionsIfSacrifiableTarget.classList.add('d-none');
+      this.optionsIfCombinableTarget.classList.add('d-none');
+      this.combineNotChampionTarget.classList.add('d-none');
       this.isAChampion.value = true
+   } else {
+      this.secondQuestionIfObjectTarget.classList.add('d-none');
+      this.secondQuestionIfChampionTarget.classList.add('d-none');
    }
   };
 
@@ -31,6 +43,24 @@ export default class extends Controller {
     } else {
       this.lifeOfGardTarget.classList.add('d-none');
       this.lifeOfChampTarget.classList.remove('d-none');}
+  };
 
+  validateIfIsChoice(){
+    if (this.choiceTarget.checked === true){
+      this.isAChoiceTarget.classList.remove('d-none');
+      this.isNoChoiceTarget.classList.add('d-none');
+    } else {
+      this.isAChoiceTarget.classList.add('d-none');
+      this.isNoChoiceTarget.classList.remove('d-none');
+    }
+  };
+
+  validateIfCombo(){
+    if (this.comboTarget.checked === true) {
+      console.log("Hello")
+      this.optionsIfCombinableTarget.classList.remove('d-none');
+    } else {
+      this.optionsIfCombinableTarget.classList.add('d-none');
+    }
   };
 }
