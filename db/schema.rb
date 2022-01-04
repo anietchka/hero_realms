@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_04_111840) do
+ActiveRecord::Schema.define(version: 2022_01_04_131209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,10 +54,10 @@ ActiveRecord::Schema.define(version: 2022_01_04_111840) do
     t.integer "heal"
     t.integer "discard"
     t.integer "discard_enemy"
-    t.integer "card_discarding_on_top"
-    t.integer "next_action_purchased_on_top_if_combine"
+    t.boolean "card_discarding_on_top"
+    t.boolean "next_action_purchased_on_top_if_combine"
     t.integer "heal_for_all_champs"
-    t.integer "next_card_purchased_in_hand_if_combine"
+    t.boolean "next_card_purchased_in_hand_if_combine"
     t.integer "life_of_champ"
     t.integer "life_of_gard"
     t.integer "sacrify"
@@ -69,9 +69,9 @@ ActiveRecord::Schema.define(version: 2022_01_04_111840) do
     t.integer "knock_ou_champ"
     t.integer "damage_for_other_green"
     t.integer "damage_for_other_champ"
-    t.integer "champ_from_discarding_on_top"
+    t.boolean "champ_from_discarding_on_top"
     t.integer "damage_for_other_gard"
-    t.integer "mobilize_champ_if_combine"
+    t.boolean "mobilize_champ_if_combine"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
@@ -87,10 +87,10 @@ ActiveRecord::Schema.define(version: 2022_01_04_111840) do
     t.integer "heal_for_all_champs_if_combine"
     t.integer "heal_for_all_champs_if_choice"
     t.integer "cash_if_choice"
-    t.integer "knock_out_champ_if_combine"
+    t.boolean "knock_out_champ_if_combine"
     t.integer "heal_if_choice"
     t.integer "discard_if_combine"
-    t.integer "next_card_purchased_on_top_if_combine"
+    t.boolean "next_card_purchased_on_top_if_combine"
     t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
