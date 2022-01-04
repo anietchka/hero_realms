@@ -2,17 +2,22 @@
 <div data-controller="form-new-card">
   <%= simple_form_for(@card) do |f| %>
     <div class="first-question" data-form-new-card-target = 'firstQuestion'>
-      <%= f.input :name %>
+      <%= f.input :namen label: 'Nom' %>
       <%= f.input :photo, as: :file %>
-      <%= f.input :collection, collection: Card::TYPE, input_html: { data: { target: "form-new-card.collection"} } %>
-      <div class="margin-top-40px" style="display: flex; justify-content: space-between;">
-        <div class="button button-white button-previous text-normal">PREVIOUS</div>
-        <div class="button button-next background-color-customed text-normal" data-action="click->form-new-card#goTo2" >NEXT</div>
-      </div>
-    </div>
+      <%= f.input :collection, collection: Card::TYPE, input_html: { data: { target: "form-new-card.collection",
+                                                                              action: "change->form-new-card#validateCollection"} } %>
 
     <div class="second-question-if-object d-none" data-form-new-card-target = 'secondQuestionIfObject'>
-      <%= f.input :price %>
+      <%= f.input :price, label: "Valeur de la carte" %>
+      <%= f.input :cash, label: "Gain d'argent" %>
+      <%= f.input :damage, "Nombre de dégats" %>
+      <%= f.input :color, as: :hidden, input_html: { data: { target: "form-new-card.noColor"}} %>
+      <%= f.input :throw, label: "Sacrifiable?", input_html: { data: { target: "form-new-card.sacrifiable",
+                                                                              action: "change->form-new-card#validateSacrifiable"} } %>
+    </div>
+    <div class="sacrifiable d-none"data-form-new-card-target = 'optionsIfSacrifiable'>
+      <%= f.input :damage_if_throw, label: "Nombre de dégats si sacrifiée" %>
+      <%= f.input :discard_enemy_if_throw, label: "Nombre de cartes defaussées par l'ennemi si sacrifiée" %>
     </div>
     <%= f.input :color, collection: Card::COLOR %>
     <%= f.submit "Créer la carte"%>
