@@ -1,9 +1,20 @@
-<h1>Créer une nouvelle carte</h1>
-<%= simple_form_for(@card) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :photo, as: :file %>
-  <%= f.input :collection, collection: Card::TYPE %>
-  <%= f.input :color, collection: Card::COLOR %>
-  <%= f.input :price %>
-  <%= f.submit "Créer la carte"%>
-<% end %>
+<h1 >Créer une nouvelle carte</h1>
+<div data-controller="form-new-card">
+  <%= simple_form_for(@card) do |f| %>
+    <div class="first-question" data-form-new-card-target = 'firstQuestion'>
+      <%= f.input :name %>
+      <%= f.input :photo, as: :file %>
+      <%= f.input :collection, collection: Card::TYPE, input_html: { data: { target: "form-new-card.collection"} } %>
+      <div class="margin-top-40px" style="display: flex; justify-content: space-between;">
+        <div class="button button-white button-previous text-normal">PREVIOUS</div>
+        <div class="button button-next background-color-customed text-normal" data-action="click->form-new-card#goTo2" >NEXT</div>
+      </div>
+    </div>
+
+    <div class="second-question-if-object d-none" data-form-new-card-target = 'secondQuestionIfObject'>
+      <%= f.input :price %>
+    </div>
+    <%= f.input :color, collection: Card::COLOR %>
+    <%= f.submit "Créer la carte"%>
+  <% end %>
+</div>
