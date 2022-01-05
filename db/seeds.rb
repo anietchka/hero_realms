@@ -30,7 +30,7 @@ puts 'Creating a lot of Gemme de Feu'
     cash: 2,
     throw: true,
     damage_if_throw: 3,
-    photo: 'Taxation.jpg',
+    photo: 'Gemme_de_feu.jpg',
     user: User.find_by(email: "lapiochegemme@gmail.com")
   )
 end
@@ -141,7 +141,7 @@ puts 'Creating Green Action cards'
     discard_enemy: 1,
     combine: true,
     damage_if_combine: 2,
-    photo: 'Taxation.jpg',
+    photo: 'Etincelle.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 end
@@ -156,7 +156,7 @@ end
     discard: 1,
     combine: true,
     damage_if_combine: 4,
-    photo: 'Taxation.jpg',
+    photo: 'Don_elfique.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 end
@@ -170,7 +170,7 @@ end
     discard_enemy: 1,
     combine: true,
     damage_if_combine: 3,
-    photo: 'Taxation.jpg',
+    photo: 'Malediction_elfique.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 end
@@ -184,7 +184,7 @@ Card.create!(
     discard_enemy_if_combine: 1,
     throw: true,
     damage_if_throw: 4,
-    photo: 'Taxation.jpg',
+    photo: 'Don_de_la_nature.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
@@ -196,7 +196,7 @@ Card.create!(
     discard_enemy: 1,
     throw: true,
     discard_enemy_if_throw: 1,
-    photo: 'Taxation.jpg',
+    photo: 'Forme_de_loup.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
@@ -207,6 +207,7 @@ Card.create!(
     damage: 6,
     draw: 2,
     discard: 2,
-    photo: 'Taxation.jpg',
+    photo: 'Sauvagerie.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
+puts 'Toutes les action vertes créées!'
