@@ -81,7 +81,7 @@
       </div>
       <%#= Option Sacrifiable, non utilisée par les champions %>
       <div data-form-new-card-target = 'sacrifyNotForChamp'>
-        <%= f.input :throw, label: "Sacrifiable?", input_html: { data: { target: "form-new-card.sacrifiable",
+        <%= f.input :throw, label: "Sacrifiable?", as: :boolean, checked_value: true, unchecked_value: false, input_html: { data: { target: "form-new-card.sacrifiable",
                                                                               action: "change->form-new-card#validateSacrifiable"} } %>
         <div class="sacrifiable d-none" data-form-new-card-target = 'optionsIfSacrifiable'>
           <%= f.input :damage_if_throw, label: "Nombre de dégats si sacrifiée" %>
