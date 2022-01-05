@@ -1,1 +1,8 @@
 <h1>Toutes les cartes</h1>
+<div class="cards-card">
+  <% @cards.each do |card| %>
+    <%= link_to(card_path(card)) do  %>
+      <h3><%= card.name %></h3>
+    <% end %>
+  <% end %>
+</div>
