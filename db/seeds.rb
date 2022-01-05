@@ -12,7 +12,14 @@ puts 'Creer la pioche'
 User.create!(username: "Pioche",
   email: "lapioche@gmail.com",
   password: "123456")
-puts 'pioche crée!!'
+puts 'Pioche crée!!'
+
+puts 'Creer la pioche de gemmes'
+User.create!(username: "Pioche de Gemme",
+  email: "lapiochegemme@gmail.com",
+  password: "123456")
+puts 'Pioche de gemmes créée'
+
 puts 'Creating a lot of Gemme de Feu'
 2.times do
   Card.create!(
@@ -22,7 +29,9 @@ puts 'Creating a lot of Gemme de Feu'
     price: 2,
     cash: 2,
     throw: true,
-    damage_if_throw: 3
+    damage_if_throw: 3,
+    photo: 'Taxation.jpg',
+    user: User.find_by(email: "lapiochegemme@gmail.com")
   )
 end
 puts 'Gemme de feu créés'
@@ -37,7 +46,8 @@ puts 'Creating Yellow Action cards'
     cash: 2,
     combine: true,
     heal_if_combine: 6,
-    user: User.find_by(email: 'lapioche@gmail.com')
+    photo: 'Taxation.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
   )
 end
 3.times do
@@ -51,7 +61,8 @@ end
     heal_for_all_champs: 1,
     combine: true,
     cash_if_combine: 1,
-    user: User.find_by(email: 'lapioche@gmail.com')
+    photo: 'Recrutement.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
   )
 end
 Card.create!(
@@ -63,7 +74,8 @@ Card.create!(
     damage_for_all_champs: 2,
     combine: true,
     heal_if_combine: 6,
-    user: User.find_by(email: 'lapioche@gmail.com')
+    photo: 'Serrer_les_rangs.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
     name: 'Ralliement des troupes',
@@ -74,7 +86,8 @@ Card.create!(
     heal: 5,
     combine: true,
     mobilize_champ_if_combine: true,
-    user: User.find_by(email: 'lapioche@gmail.com')
+    photo: 'Ralliement_des_troupes.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
     name: 'Commandement',
@@ -85,7 +98,8 @@ Card.create!(
     damage: 3,
     heal: 4,
     draw: 1,
-    user: User.find_by(email: 'lapioche@gmail.com')
+    photo: 'Commandement.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
     name: 'Domination',
@@ -97,7 +111,8 @@ Card.create!(
     draw: 1,
     combine: true,
     mobilize_champ_if_combine: true,
-    user: User.find_by(email: 'lapioche@gmail.com')
+    photo: 'Domination.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
     name: 'Parole de Puissance',
@@ -109,7 +124,8 @@ Card.create!(
     heal_if_combine: 5,
     throw: true,
     damage_if_throw: 5,
-    user: User.find_by(email: 'lapioche@gmail.com')
+    photo: 'Parole_de_puissance.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
   )
 
   puts "all Yellow Action cards create!!"
