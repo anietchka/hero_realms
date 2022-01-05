@@ -1,8 +1,12 @@
-<h1>Toutes les cartes</h1>
-  <% @cards.each do |card| %>
-    <%= link_to(card_path(card)) do  %>
-      <div class="card-image">
-        <%= image_tag card.photo %>
-      </div>
-    <% end %>
-  <% end %>
+<div class="container">
+  <h1>Toutes les cartes</h1>
+    <div class="cards-card">
+      <% @cards.each do |card| %>
+        <%= link_to(card_path(card)) do  %>
+          <div class="card-image">
+            <%= image_tag card.photo %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+</div>

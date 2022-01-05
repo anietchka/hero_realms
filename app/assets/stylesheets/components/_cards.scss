@@ -1,4 +1,7 @@
-
+.cards-card{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
 .card-image{
   img{
     height: 180px;
