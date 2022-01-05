@@ -129,3 +129,84 @@ Card.create!(
   )
 
   puts "all Yellow Action cards create!!"
+
+puts 'Creating Green Action cards'
+3.times do
+  Card.create!(
+    name: 'Etincelle',
+    collection: 'Action',
+    color: "Verte",
+    price: 1,
+    damage: 3,
+    discard_enemy: 1,
+    combine: true,
+    damage_if_combine: 2,
+    photo: 'Taxation.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+end
+3.times do
+  Card.create!(
+    name: 'Don Elfique',
+    collection: 'Action',
+    color: "Verte",
+    price: 2,
+    cash: 2,
+    draw: 1,
+    discard: 1,
+    combine: true,
+    damage_if_combine: 4,
+    photo: 'Taxation.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+end
+2.times do
+  Card.create!(
+    name: 'Malediction Elfique',
+    collection: 'Action',
+    color: "Verte",
+    price: 3,
+    damage: 6,
+    discard_enemy: 1,
+    combine: true,
+    damage_if_combine: 3,
+    photo: 'Taxation.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+end
+Card.create!(
+    name: 'Don de la Nature',
+    collection: 'Action',
+    color: "Verte",
+    price: 4,
+    cash: 4,
+    combine: true,
+    discard_enemy_if_combine: 1,
+    throw: true,
+    damage_if_throw: 4,
+    photo: 'Taxation.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+Card.create!(
+    name: 'Forme de Loup',
+    collection: 'Action',
+    color: "Verte",
+    price: 5,
+    damage: 8,
+    discard_enemy: 1,
+    throw: true,
+    discard_enemy_if_throw: 1,
+    photo: 'Taxation.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+Card.create!(
+    name: 'Sauvagerie',
+    collection: 'Action',
+    color: "Verte",
+    price: 6,
+    damage: 6,
+    draw: 2,
+    discard: 2,
+    photo: 'Taxation.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
