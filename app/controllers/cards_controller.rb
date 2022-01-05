@@ -3,13 +3,17 @@ class CardsController < ApplicationController
     @cards = Card.all
   end
 
+  def show
+    @card = Card.find(params[:id])
+  end
+
   def new
     @card = Card.new
   end
 
   def create
     @card = Card.new(cards_params)
-    @card.save
+    @card.save!
     redirect_to cards_path
   end
 
