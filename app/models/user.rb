@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :username, uniqueness: { message: "is already taken" }
   has_one_attached :photo
+  has_many :cards
 end
