@@ -14,6 +14,7 @@
       <%= f.input :throw, label: "Sacrifiable?", input_html: { data: { target: "form-new-card.sacrifiable",
                                                                               action: "change->form-new-card#validateSacrifiable"} } %>
     </div>
+
     <div class="second-question-if-action d-none" data-form-new-card-target = 'secondQuestionIfAction'>
       <%= f.input :color, label: "Couleur", collection: Card::COLOR %>
       <%= f.input :price, label: "Valeur de la carte" %>
@@ -30,12 +31,14 @@
       <%= f.input :knock_ou_champ, as: :boolean, checked_value: true, unchecked_value: false, label: "Asommer un champion" %>
       <%= f.input :combine, as: :boolean, checked_value: true, unchecked_value: false, label: "A un combo?", input_html: { data: { target: "form-new-card.combo",
                                                                                                                                       action: "change->form-new-card#validateIfCombo"} }  %>
+      <%= f.input :throw, label: "Sacrifiable?", input_html: { data: { target: "form-new-card.sacrifiable",
+                                                                        action: "change->form-new-card#validateSacrifiable"} } %>
     </div>
 
     <div class="second-question-if-champion d-none" data-form-new-card-target = 'secondQuestionIfChampion'>
       <%= f.input :color, label: "Couleur", collection: Card::COLOR %>
       <%= f.input :price, label: "Valeur de la carte" %>
-      <%= f.input :champion, as: :hidden, input_html: { data: { target: "form-new-card.isAChampion"}} %>
+      <%= f.input :champion, as: :hidden, input_html: { data: { target: "form-new-card.isChampion"}} %>
       <%= f.input :gard, as: :boolean, checked_value: true, unchecked_value: false, label: "Est un garde?", input_html: { data: { target: "form-new-card.gard",
                                                                                                                                     action: "change->form-new-card#validateIfGard"} }  %>
       <div class="life-of-champ" data-form-new-card-target = 'lifeOfChamp'>
@@ -75,15 +78,6 @@
 
     </div>
 
-    <div class="sacrifiable d-none" data-form-new-card-target = 'optionsIfSacrifiable'>
-      <%= f.input :damage_if_throw, label: "Nombre de dégats si sacrifiée" %>
-      <div class="" data-form-new-card-target = 'discardEnemyIfThrow'>
-        <%= f.input :discard_enemy_if_throw, label: "Nombre de cartes defaussées par l'ennemi si sacrifiée" %>
-      </div>
-    </div>
-
-
-
     <div class="combinable d-none" data-form-new-card-target = 'optionsIfCombinable'>
       <%= f.input :damage_if_combine, label: "Nombre de degats infligés si combine" %>
       <div data-form-new-card-target = 'combineNotChoice'>
@@ -102,6 +96,14 @@
           <%= f.input :knock_out_champ_if_combine, as: :boolean, checked_value: true, unchecked_value: false, label: "Assomer un champion si combine" %>
           <%= f.input :next_card_purchased_in_hand_if_combine, as: :boolean, checked_value: true, unchecked_value: false, label: "Prochaine carte acquise dans la main si combine" %>
         </div>
+      </div>
+    </div>
+
+
+    <div class="sacrifiable d-none" data-form-new-card-target = 'optionsIfSacrifiable'>
+      <%= f.input :damage_if_throw, label: "Nombre de dégats si sacrifiée" %>
+      <div class="" data-form-new-card-target = 'discardEnemyIfThrow'>
+        <%= f.input :discard_enemy_if_throw, label: "Nombre de cartes defaussées par l'ennemi si sacrifiée" %>
       </div>
     </div>
 
