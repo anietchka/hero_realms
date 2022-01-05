@@ -1,40 +1,50 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["discardEnemyIfThrow", "collection", "secondQuestionIfObject", "noColor", "sacrifiable", "optionsIfSacrifiable", "isChampion", "gard", "secondQuestionIfChampion", "lifeOfGard", "lifeOfChamp", "isAChoice", "isNoChoice", "choice", "combo", "optionsIfCombinable", "combineNotChampion", "combineNotChoice", "secondQuestionIfAction", "combineNotAction"]
+  static targets = ["discardEnemyIfThrow", "sacrifyNotForChamp", "combineNotForObject", "noChoiceOnlyChamp", "noChoiceOnlyAction", "noChoiceForActionChamp", "onlyForChamp", "notForObject", "forEveryOne", "collection", "noColor", "sacrifiable", "optionsIfSacrifiable", "isChampion", "gard", "lifeOfGard", "lifeOfChamp", "isAChoice", "isNoChoice", "choice", "combo", "optionsIfCombinable", "combineNotChampion", "combineNotChoice", "combineNotAction"]
 
   validateCollection(){
     if (this.collectionTarget.value === 'Objet') {
-      this.secondQuestionIfObjectTarget.classList.remove('d-none');
-      this.secondQuestionIfChampionTarget.classList.add('d-none');
-      this.secondQuestionIfActionTarget.classList.add('d-none');
-      this.discardEnemyIfThrowTarget.classList.add('d-none');
-      this.optionsIfSacrifiableTarget.classList.add('d-none');
-      this.optionsIfCombinableTarget.classList.add('d-none');
+      this.forEveryOneTarget.classList.remove('d-none');
+      this.notForObjectTarget.classList.add('d-none');
       this.noColorTarget.value = 'Aucune';
+      this.onlyForChampTarget.classList.add('d-none');
       this.isChampionTarget.value = false;
+      this.choiceTarget.value = false;
+      this.noChoiceForActionChampTarget.classList.add('d-none');
+      this.combineNotForObjectTarget.classList.add('d-none');
+      this.sacrifyNotForChampTarget.classList.remove('d-none');
+      this.discardEnemyIfThrowTarget.classList.add('d-none');
     } else if (this.collectionTarget.value === 'Action') {
-      this.secondQuestionIfActionTarget.classList.remove('d-none');
-      this.optionsIfSacrifiableTarget.classList.add('d-none');
-      this.optionsIfCombinableTarget.classList.add('d-none');
-      this.secondQuestionIfChampionTarget.classList.add('d-none');
-      this.secondQuestionIfObjectTarget.classList.add('d-none');
-      this.combineNotChampionTarget.classList.remove('d-none');
-      this.combineNotActionTarget.classList.add('d-none');
+      this.forEveryOneTarget.classList.remove('d-none');
+      this.notForObjectTarget.classList.remove('d-none');
+      this.noColorTarget.value = null;
+      this.onlyForChampTarget.classList.add('d-none');
       this.isChampionTarget.value = false;
+      this.choiceTarget.value = false;
+      this.noChoiceForActionChampTarget.classList.remove('d-none');
+      this.noChoiceOnlyActionTarget.classList.remove('d-none');
+      this.noChoiceOnlyChampTarget.classList.add('d-none');
+      this.combineNotForObjectTarget.classList.remove('d-none');
+      this.sacrifyNotForChampTarget.classList.remove('d-none');
+      this.discardEnemyIfThrowTarget.classList.remove('d-none');
+      this.combineNotActionTarget.classList.add('d-none');
+      this.combineNotChampionTarget.classList.remove('d-none');
     } else if (this.collectionTarget.value === 'Champion') {
-      this.secondQuestionIfActionTarget.classList.add('d-none');
-      this.secondQuestionIfChampionTarget.classList.remove('d-none');
-      this.secondQuestionIfObjectTarget.classList.add('d-none');
-      this.optionsIfSacrifiableTarget.classList.add('d-none');
-      this.optionsIfCombinableTarget.classList.add('d-none');
-      this.combineNotChampionTarget.classList.add('d-none');
-      this.combineNotActionTarget.classList.remove('d-none');
+      this.forEveryOneTarget.classList.remove('d-none');
+      this.notForObjectTarget.classList.remove('d-none');
+      this.noColorTarget.value = null;
+      this.onlyForChampTarget.classList.remove('d-none');
       this.isChampionTarget.value = true;
+      this.noChoiceForActionChampTarget.classList.remove('d-none');
+      this.noChoiceOnlyActionTarget.classList.add('d-none');
+      this.noChoiceOnlyChampTarget.classList.remove('d-none');
+      this.combineNotForObjectTarget.classList.remove('d-none');
+      this.sacrifyNotForChampTarget.classList.add('d-none');
+      this.combineNotActionTarget.classList.remove('d-none');
+      this.combineNotChampionTarget.classList.add('d-none');
    } else {
-      this.secondQuestionIfObjectTarget.classList.add('d-none');
-      this.secondQuestionIfChampionTarget.classList.add('d-none');
-      this.secondQuestionIfActionTarget.classList.add('d-none');
+      this.forEveryOneTarget.classList.add('d-none')
    }
   };
 
