@@ -8,8 +8,8 @@
 
     <div class="second-question-if-object d-none" data-form-new-card-target = 'secondQuestionIfObject'>
       <%= f.input :price, label: "Valeur de la carte" %>
-      <%= f.input :cash, label: "Nombre d'or" %>
-      <%= f.input :damage, label: "Nombre de dégats" %>
+      <%= f.input :cash, label: "Nombre d'or gagné" %>
+      <%= f.input :damage, label: "Nombre de dégats infligés" %>
       <%= f.input :color, label: "Couleur", as: :hidden, input_html: { data: { target: "form-new-card.noColor"}} %>
       <%= f.input :throw, label: "Sacrifiable?", input_html: { data: { target: "form-new-card.sacrifiable",
                                                                               action: "change->form-new-card#validateSacrifiable"} } %>
@@ -17,6 +17,19 @@
     <div class="second-question-if-action d-none" data-form-new-card-target = 'secondQuestionIfAction'>
       <%= f.input :color, label: "Couleur", collection: Card::COLOR %>
       <%= f.input :price, label: "Valeur de la carte" %>
+      <%= f.input :cash, label: "Nombre d'or gagnés" %>
+      <%= f.input :damage, label: "Nombre de dégats infligés" %>
+      <%= f.input :heal, label: "Nombre de points vie gagnés" %>
+      <%= f.input :draw, label: "Nombre de cartes à piocher" %>
+      <%= f.input :discard, label: "Nombre de cartes à defausser" %>
+      <%= f.input :discard_enemy, label: "Nombre de cartes dont l'ennemi doit se defausser" %>
+      <%= f.input :heal_for_all_champs, label: "Nombre de points vie gagnés pour chaque champion" %>
+      <%= f.input :damage_for_all_champs, label: "Nombre de dégats infligés pour chaque champion" %>
+      <%= f.input :sacrify, label: "Nombre de carte que l'on peut sacrifier de sa main ou defausse" %>
+      <%= f.input :card_discarding_on_top, as: :boolean, checked_value: true, unchecked_value: false, label: "Prendre une carte de la defausse et la mettre dans le deck" %>
+      <%= f.input :knock_ou_champ, as: :boolean, checked_value: true, unchecked_value: false, label: "Asommer un champion" %>
+      <%= f.input :combine, as: :boolean, checked_value: true, unchecked_value: false, label: "A un combo?", input_html: { data: { target: "form-new-card.combo",
+                                                                                                                                      action: "change->form-new-card#validateIfCombo"} }  %>
     </div>
 
     <div class="second-question-if-champion d-none" data-form-new-card-target = 'secondQuestionIfChampion'>
@@ -74,12 +87,14 @@
     <div class="combinable d-none" data-form-new-card-target = 'optionsIfCombinable'>
       <%= f.input :damage_if_combine, label: "Nombre de degats infligés si combine" %>
       <div data-form-new-card-target = 'combineNotChoice'>
-        <%= f.input :discard_enemy_if_combine, label: "Nombre de cartes dont l'adversaire se defausse si combine" %>
         <%= f.input :draw_if_combine, label: "Nombre de cartes a piocher si combine" %>
         <%= f.input :discard_if_combine, label: "Nombre de carte dont vous vous defaussez si combine" %>
         <%= f.input :heal_if_combine, label: "Nombre de points vie gagnés si combine" %>
-        <%= f.input :heal_for_all_champs_if_combine, label: "Nombre de points vie gagnée pour chaque champion si combine" %>
-        <%= f.input :next_card_purchased_on_top_if_combine, as: :boolean, checked_value: true, unchecked_value: false, label: "Prochaine carte acquise au dessus du deck si combine" %>
+        <div data-form-new-card-target = 'combineNotAction'>
+          <%= f.input :discard_enemy_if_combine, label: "Nombre de cartes dont l'adversaire se defausse si combine" %>
+          <%= f.input :heal_for_all_champs_if_combine, label: "Nombre de points vie gagnée pour chaque champion si combine" %>
+          <%= f.input :next_card_purchased_on_top_if_combine, as: :boolean, checked_value: true, unchecked_value: false, label: "Prochaine carte acquise au dessus du deck si combine" %>
+        </div>
         <div data-form-new-card-target = 'combineNotChampion'>
           <%= f.input :cash_if_combine, label: "Nombre d'or si combine" %>
           <%= f.input :next_action_purchased_on_top_if_combine, as: :boolean, checked_value: true, unchecked_value: false, label: "Prochaine Action acquise au dessus du deck si combine?" %>

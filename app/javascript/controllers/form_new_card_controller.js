@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["discardEnemyIfThrow", "collection", "secondQuestionIfObject", "noColor", "sacrifiable", "optionsIfSacrifiable", "isAChampion", "gard", "secondQuestionIfChampion", "lifeOfGard", "lifeOfChamp", "isAChoice", "isNoChoice", "choice", "combo", "optionsIfCombinable", "combineNotChampion", "combineNotChoice", "secondQuestionIfAction"]
+  static targets = ["discardEnemyIfThrow", "collection", "secondQuestionIfObject", "noColor", "sacrifiable", "optionsIfSacrifiable", "isAChampion", "gard", "secondQuestionIfChampion", "lifeOfGard", "lifeOfChamp", "isAChoice", "isNoChoice", "choice", "combo", "optionsIfCombinable", "combineNotChampion", "combineNotChoice", "secondQuestionIfAction", "combineNotAction"]
 
   validateCollection(){
     if (this.collectionTarget.value === 'Objet') {
@@ -12,13 +12,16 @@ export default class extends Controller {
       this.optionsIfSacrifiableTarget.classList.add('d-none');
       this.optionsIfCombinableTarget.classList.add('d-none');
       this.noColorTarget.value = 'Aucune';
-      console.log("C'est une carte Objet");
+      this.isAChampion.value = false;
     } else if (this.collectionTarget.value === 'Action') {
       this.secondQuestionIfActionTarget.classList.remove('d-none');
       this.optionsIfSacrifiableTarget.classList.add('d-none');
       this.optionsIfCombinableTarget.classList.add('d-none');
       this.secondQuestionIfChampionTarget.classList.add('d-none');
       this.secondQuestionIfObjectTarget.classList.add('d-none');
+      this.combineNotChampionTarget.classList.remove('d-none');
+      this.combineNotActionTarget.classList.add('d-none');
+      this.isAChampion.value = false;
     } else if (this.collectionTarget.value === 'Champion') {
       this.secondQuestionIfActionTarget.classList.add('d-none');
       this.secondQuestionIfChampionTarget.classList.remove('d-none');
@@ -26,6 +29,7 @@ export default class extends Controller {
       this.optionsIfSacrifiableTarget.classList.add('d-none');
       this.optionsIfCombinableTarget.classList.add('d-none');
       this.combineNotChampionTarget.classList.add('d-none');
+      this.combineNotActionTarget.classList.remove('d-none');
       this.isAChampion.value = true
    } else {
       this.secondQuestionIfObjectTarget.classList.add('d-none');
@@ -63,7 +67,6 @@ export default class extends Controller {
 
   validateIfCombo(){
     if (this.comboTarget.checked === true) {
-      console.log("Hello")
       this.optionsIfCombinableTarget.classList.remove('d-none');
     } else {
       this.optionsIfCombinableTarget.classList.add('d-none');
