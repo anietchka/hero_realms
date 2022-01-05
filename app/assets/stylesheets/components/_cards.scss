@@ -1,0 +1,14 @@
+
+.card-image{
+  img{
+    height: 180px;
+    width: auto;
+  }
+}
+
+.card-image :hover{
+  img{
+    height: 250px;
+    width: auto;
+  }
+}
