@@ -424,6 +424,7 @@ Card.create!(
     color: "Jaune",
     price: 4,
     champion: true,
+    gard: true,
     life_of_gard: 4,
     damage: 3,
     damage_for_other_champ: 1,
@@ -436,7 +437,7 @@ Card.create!(
     color: "Jaune",
     price: 4,
     champion: true,
-    life_of_champ: 4,
+    life_of_champ: 5,
     choice: true,
     heal_if_choice: 4,
     damage_if_choice: 3,
@@ -485,5 +486,106 @@ Card.create!(
     combine: true,
     heal_if_combine: 6,
     photo: 'Arkus_dragon_imperial.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+puts "Tous les champions jeune créé!!!"
+puts "Création des champions rouge"
+2.times do
+  Card.create!(
+    name: 'Cultiste de la mort',
+    collection: 'Champion',
+    color: "Rouge",
+    price: 2,
+    champion: true,
+    gard: true,
+    life_of_gard: 3,
+    damage: 2,
+    photo: 'Percepteur_de_dime.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+end
+2.times do
+  Card.create!(
+    name: 'Pretre du culte',
+    collection: 'Champion',
+    color: "Rouge",
+    price: 3,
+    champion: true,
+    life_of_champ: 4,
+    choice: true,
+    cash_if_choice: 1,
+    damage_if_choice: 1,
+    combine: true,
+    damage_if_combine: 4,
+    photo: 'Percepteur_de_dime.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+end
+Card.create!(
+    name: 'Rayla, Tisseuse de fins',
+    collection: 'Champion',
+    color: "Rouge",
+    price: 4,
+    champion: true,
+    life_of_champ: 4,
+    damage: 3,
+    combine: true,
+    draw_if_combine: 1,
+    photo: 'Percepteur_de_dime.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+Card.create!(
+    name: 'Varick, le nécromancien',
+    collection: 'Champion',
+    color: "Rouge",
+    price: 5,
+    champion: true,
+    life_of_champ: 3,
+    champ_from_discarding_on_top: true,
+    combine: true,
+    draw_if_combine: 1,
+    photo: 'Percepteur_de_dime.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+Card.create!(
+    name: "Lys, l'inapparent",
+    collection: 'Champion',
+    color: "Rouge",
+    price: 6,
+    champion: true,
+    gard: true,
+    life_of_gard: 5,
+    damage: 2,
+    sacrify: 1,
+    damage_if_sacrify: 2,
+    photo: 'Percepteur_de_dime.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+Card.create!(
+    name: "Krythos, maitre vampire",
+    collection: 'Champion',
+    color: "Rouge",
+    price: 7,
+    champion: true,
+    life_of_champ: 6,
+    damage: 3,
+    sacrify: 1,
+    damage_if_sacrify: 3,
+    photo: 'Percepteur_de_dime.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+Card.create!(
+    name: "Tyrannor, le dévoreur",
+    collection: 'Champion',
+    color: "Rouge",
+    price: 6,
+    champion: true,
+    gard: true,
+    life_of_gard: 6,
+    damage: 4,
+    sacrify: 2,
+    combine: true,
+    draw_if_combine: 1,
+    photo: 'Percepteur_de_dime.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
