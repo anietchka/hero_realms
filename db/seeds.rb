@@ -386,3 +386,103 @@ Card.create!(
     photo: 'Bombe_incendiaire.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
+puts 'Création des champions jaunes'
+2.times do
+  Card.create!(
+    name: 'Percepteur de Dime',
+    collection: 'Champion',
+    color: "Jaune",
+    price: 2,
+    champion: true,
+    life_of_champ: 3,
+    choice: true,
+    cash_if_choice: 1,
+    heal_for_all_champs_if_choice: 1,
+    photo: 'Taxation.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+end
+2.times do
+  Card.create!(
+    name: "Homme d'armes",
+    collection: 'Champion',
+    color: "Jaune",
+    price: 3,
+    champion: true,
+    gard: true,
+    life_of_gard: 4,
+    damage: 2,
+    damage_for_other_gard: 1,
+    photo: 'Taxation.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+end
+Card.create!(
+    name: "Maitre Weyan",
+    collection: 'Champion',
+    color: "Jaune",
+    price: 4,
+    champion: true,
+    life_of_gard: 4,
+    damage: 3,
+    damage_for_other_champ: 1,
+    photo: 'Taxation.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+Card.create!(
+    name: "Darian, Mage de guerre",
+    collection: 'Champion',
+    color: "Jaune",
+    price: 4,
+    champion: true,
+    life_of_champ: 4,
+    choice: true,
+    heal_if_choice: 4,
+    damage_if_choice: 3,
+    photo: 'Taxation.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+Card.create!(
+    name: "Cristov, le juste",
+    collection: 'Champion',
+    color: "Jaune",
+    price: 5,
+    champion: true,
+    gard: true,
+    life_of_gard: 5,
+    damage: 2,
+    heal: 3,
+    combine: true,
+    draw_if_combine: 1,
+    photo: 'Taxation.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+Card.create!(
+    name: "Kraka, grand pretre",
+    collection: 'Champion',
+    color: "Jaune",
+    price: 6,
+    champion: true,
+    life_of_champ: 6,
+    draw: 1,
+    heal: 2,
+    combine: true,
+    heal_for_all_champs_if_combine: 2,
+    photo: 'Taxation.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+Card.create!(
+    name: "Arkus, dragon imperial",
+    collection: 'Champion',
+    color: "Jaune",
+    price: 8,
+    champion: true,
+    gard: true,
+    life_of_gard: 6,
+    damage: 5,
+    draw: 1,
+    combine: true,
+    heal_if_combine: 6,
+    photo: 'Taxation.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
