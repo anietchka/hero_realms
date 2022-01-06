@@ -287,3 +287,4 @@ Card.create!(
       photo: 'Etincelle.jpg',
       user: User.find_by(email: "lapioche@gmail.com")
     )
+puts 'Action rouges créées!'
