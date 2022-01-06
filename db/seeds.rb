@@ -386,6 +386,7 @@ Card.create!(
     photo: 'Bombe_incendiaire.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
+puts 'Actions bleues créées!!!'
 puts 'Création des champions jaunes'
 2.times do
   Card.create!(
@@ -398,7 +399,7 @@ puts 'Création des champions jaunes'
     choice: true,
     cash_if_choice: 1,
     heal_for_all_champs_if_choice: 1,
-    photo: 'Taxation.jpg',
+    photo: 'Percepteur_de_dime.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 end
@@ -413,7 +414,7 @@ end
     life_of_gard: 4,
     damage: 2,
     damage_for_other_gard: 1,
-    photo: 'Taxation.jpg',
+    photo: 'homme_d_armes.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 end
@@ -426,7 +427,7 @@ Card.create!(
     life_of_gard: 4,
     damage: 3,
     damage_for_other_champ: 1,
-    photo: 'Taxation.jpg',
+    photo: 'Maitre_weyan.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
@@ -439,7 +440,7 @@ Card.create!(
     choice: true,
     heal_if_choice: 4,
     damage_if_choice: 3,
-    photo: 'Taxation.jpg',
+    photo: 'Darian_mage_de_guerre.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
@@ -454,7 +455,7 @@ Card.create!(
     heal: 3,
     combine: true,
     draw_if_combine: 1,
-    photo: 'Taxation.jpg',
+    photo: 'Cristov_le_juste.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
@@ -468,7 +469,7 @@ Card.create!(
     heal: 2,
     combine: true,
     heal_for_all_champs_if_combine: 2,
-    photo: 'Taxation.jpg',
+    photo: 'Kraka_grand_pretre.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
@@ -483,6 +484,6 @@ Card.create!(
     draw: 1,
     combine: true,
     heal_if_combine: 6,
-    photo: 'Taxation.jpg',
+    photo: 'Arkus_dragon_imperial.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
