@@ -222,7 +222,7 @@ puts 'Créer toutes les actions rouge'
     sacrify: 1,
     combine: true,
     damage_if_combine: 2,
-    photo: 'Etincelle.jpg',
+    photo: 'Contact_mortel.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 end
@@ -235,7 +235,7 @@ end
     cash: 3,
     throw: true,
     damage_if_throw: 3,
-    photo: 'Etincelle.jpg',
+    photo: 'Influence.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 end
@@ -249,7 +249,7 @@ end
       sacrify: 1,
       combine: true,
       damage_if_combine: 3,
-      photo: 'Etincelle.jpg',
+      photo: 'La_putrefaction.jpg',
       user: User.find_by(email: "lapioche@gmail.com")
     )
 end
@@ -260,7 +260,7 @@ Card.create!(
       price: 4,
       damage: 7,
       draw_if_combine: 1,
-      photo: 'Etincelle.jpg',
+      photo: 'Energie_sombre.jpg',
       user: User.find_by(email: "lapioche@gmail.com")
     )
 Card.create!(
@@ -272,7 +272,7 @@ Card.create!(
       sacrify: 1,
       combine: true,
       damage_if_combine: 6,
-      photo: 'Etincelle.jpg',
+      photo: 'Sombre_recompense.jpg',
       user: User.find_by(email: "lapioche@gmail.com")
     )
 Card.create!(
@@ -284,7 +284,7 @@ Card.create!(
       sacrify: 1,
       combine: true,
       draw_if_combine: 1,
-      photo: 'Etincelle.jpg',
+      photo: 'Drain_de_vie.jpg',
       user: User.find_by(email: "lapioche@gmail.com")
     )
 puts 'Action rouges créées!'
