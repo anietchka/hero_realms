@@ -211,3 +211,79 @@ Card.create!(
     user: User.find_by(email: "lapioche@gmail.com")
   )
 puts 'Toutes les action vertes créées!'
+puts 'Créer toutes les actions rouge'
+3.times do
+  Card.create!(
+    name: 'Contact Mortel',
+    collection: 'Action',
+    color: "Rouge",
+    price: 1,
+    damage: 2,
+    sacrify: 1,
+    combine: true,
+    damage_if_combine: 2,
+    photo: 'Etincelle.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+end
+3.times do
+  Card.create!(
+    name: 'Influence',
+    collection: 'Action',
+    color: "Rouge",
+    price: 2,
+    cash: 3,
+    throw: true,
+    damage_if_throw: 3,
+    photo: 'Etincelle.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+end
+2.times do
+  Card.create!(
+      name: 'La putréfaction',
+      collection: 'Action',
+      color: "Rouge",
+      price: 3,
+      damage: 4,
+      sacrify: 1,
+      combine: true,
+      damage_if_combine: 3,
+      photo: 'Etincelle.jpg',
+      user: User.find_by(email: "lapioche@gmail.com")
+    )
+end
+Card.create!(
+      name: 'Energie sombre',
+      collection: 'Action',
+      color: "Rouge",
+      price: 4,
+      damage: 7,
+      draw_if_combine: 1,
+      photo: 'Etincelle.jpg',
+      user: User.find_by(email: "lapioche@gmail.com")
+    )
+Card.create!(
+      name: 'Sombre récompense',
+      collection: 'Action',
+      color: "Rouge",
+      price: 5,
+      cash: 3,
+      sacrify: 1,
+      combine: true,
+      damage_if_combine: 6,
+      photo: 'Etincelle.jpg',
+      user: User.find_by(email: "lapioche@gmail.com")
+    )
+Card.create!(
+      name: 'Drain de vie',
+      collection: 'Action',
+      color: "Rouge",
+      price: 6,
+      damage: 8,
+      sacrify: 1,
+      combine: true,
+      draw_if_combine: 1,
+      photo: 'Etincelle.jpg',
+      user: User.find_by(email: "lapioche@gmail.com")
+    )
