@@ -500,7 +500,7 @@ puts "Création des champions rouge"
     gard: true,
     life_of_gard: 3,
     damage: 2,
-    photo: 'Percepteur_de_dime.jpg',
+    photo: 'Cultiste_de_la_mort.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 end
@@ -517,7 +517,7 @@ end
     damage_if_choice: 1,
     combine: true,
     damage_if_combine: 4,
-    photo: 'Percepteur_de_dime.jpg',
+    photo: 'Pretre_du_culte.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 end
@@ -531,7 +531,7 @@ Card.create!(
     damage: 3,
     combine: true,
     draw_if_combine: 1,
-    photo: 'Percepteur_de_dime.jpg',
+    photo: 'Rayla_tisseuse_de_fins.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
@@ -544,7 +544,7 @@ Card.create!(
     champ_from_discarding_on_top: true,
     combine: true,
     draw_if_combine: 1,
-    photo: 'Percepteur_de_dime.jpg',
+    photo: 'Varrick_le_necromancien.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
@@ -558,7 +558,7 @@ Card.create!(
     damage: 2,
     sacrify: 1,
     damage_if_sacrify: 2,
-    photo: 'Percepteur_de_dime.jpg',
+    photo: 'Lys_l_inapparent.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
@@ -571,7 +571,7 @@ Card.create!(
     damage: 3,
     sacrify: 1,
     damage_if_sacrify: 3,
-    photo: 'Percepteur_de_dime.jpg',
+    photo: 'Krythos_maitre_vampire.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
@@ -586,6 +586,6 @@ Card.create!(
     sacrify: 2,
     combine: true,
     draw_if_combine: 1,
-    photo: 'Percepteur_de_dime.jpg',
+    photo: 'Tyrannor_le_devoreur.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
