@@ -288,3 +288,101 @@ Card.create!(
       user: User.find_by(email: "lapioche@gmail.com")
     )
 puts 'Action rouges créées!'
+puts 'Créer les actions bleues'
+3.times do
+  Card.create!(
+    name: 'Benefice',
+    collection: 'Action',
+    color: "Bleue",
+    price: 1,
+    cash: 2,
+    combine: true,
+    damage_if_combine: 4,
+    photo: 'Contact_mortel.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+end
+2.times do
+  Card.create!(
+    name: 'Intimidation',
+    collection: 'Action',
+    color: "Bleue",
+    price: 2,
+    damage: 5,
+    combine: true,
+    cash_if_combine: 2,
+    photo: 'Contact_mortel.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+end
+3.times do
+  Card.create!(
+    name: 'Pot-de-vin',
+    collection: 'Action',
+    color: "Bleue",
+    price: 3,
+    cash: 3,
+    combine: true,
+    next_action_purchased_on_top_if_combine: true,
+    photo: 'Contact_mortel.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+end
+Card.create!(
+    name: 'Menace de mort',
+    collection: 'Action',
+    color: "Bleue",
+    price: 3,
+    damage: 1,
+    draw: 1,
+    combine: true,
+    knock_out_champ_if_combine: true,
+    photo: 'Contact_mortel.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+Card.create!(
+    name: 'Mise à prix',
+    collection: 'Action',
+    color: "Bleue",
+    price: 4,
+    damage: 7,
+    combine: true,
+    knock_out_champ_if_combine: true,
+    photo: 'Contact_mortel.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+Card.create!(
+    name: 'Fourberie',
+    collection: 'Action',
+    color: "Bleue",
+    price: 5,
+    cash: 2,
+    draw: 1,
+    combine: true,
+    next_card_purchased_in_hand_if_combine: true,
+    photo: 'Contact_mortel.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+Card.create!(
+    name: 'Casser et piller',
+    collection: 'Action',
+    color: "Bleue",
+    price: 6,
+    damage: 6,
+    card_discarding_on_top: true,
+    photo: 'Contact_mortel.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+Card.create!(
+    name: 'Bombe incendiaire',
+    collection: 'Action',
+    color: "Bleue",
+    price: 8,
+    damage: 8,
+    draw: 1,
+    knock_ou_champ: true,
+    throw: true,
+    damage_if_throw: 5,
+    photo: 'Contact_mortel.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
