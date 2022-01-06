@@ -298,7 +298,7 @@ puts 'Créer les actions bleues'
     cash: 2,
     combine: true,
     damage_if_combine: 4,
-    photo: 'Contact_mortel.jpg',
+    photo: 'Benefice.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 end
@@ -311,7 +311,7 @@ end
     damage: 5,
     combine: true,
     cash_if_combine: 2,
-    photo: 'Contact_mortel.jpg',
+    photo: 'Intimidation.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 end
@@ -324,7 +324,7 @@ end
     cash: 3,
     combine: true,
     next_action_purchased_on_top_if_combine: true,
-    photo: 'Contact_mortel.jpg',
+    photo: 'Pot_de_vin.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 end
@@ -337,7 +337,7 @@ Card.create!(
     draw: 1,
     combine: true,
     knock_out_champ_if_combine: true,
-    photo: 'Contact_mortel.jpg',
+    photo: 'Menace_de_mort.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
@@ -348,7 +348,7 @@ Card.create!(
     damage: 7,
     combine: true,
     knock_out_champ_if_combine: true,
-    photo: 'Contact_mortel.jpg',
+    photo: 'Mise_a_prix.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
@@ -360,7 +360,7 @@ Card.create!(
     draw: 1,
     combine: true,
     next_card_purchased_in_hand_if_combine: true,
-    photo: 'Contact_mortel.jpg',
+    photo: 'Fourberie.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
@@ -370,7 +370,7 @@ Card.create!(
     price: 6,
     damage: 6,
     card_discarding_on_top: true,
-    photo: 'Contact_mortel.jpg',
+    photo: 'Casser_et_piller.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
@@ -383,6 +383,6 @@ Card.create!(
     knock_ou_champ: true,
     throw: true,
     damage_if_throw: 5,
-    photo: 'Contact_mortel.jpg',
+    photo: 'Bombe_incendiaire.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
