@@ -683,7 +683,7 @@ puts 'Création des champions verts'
     life_of_champ: 4,
     damage: 2,
     damage_for_other_green: 1,
-    photo: 'Bandit_des_rues.jpg',
+    photo: 'Shamane_des_loups.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 end
@@ -699,7 +699,7 @@ end
     damage: 2,
     combine: true,
     draw_if_combine: 1,
-    photo: 'Bandit_des_rues.jpg',
+    photo: 'Grognard_orque.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 end
@@ -713,7 +713,7 @@ Card.create!(
     cash: 2,
     combine: true,
     discard_enemy: 1,
-    photo: 'Bandit_des_rues.jpg',
+    photo: 'Broyelyn_tisseuse_de_savoirs.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
@@ -727,7 +727,7 @@ Card.create!(
     damage: 3,
     combine: true,
     damage_if_combine: 4,
-    photo: 'Bandit_des_rues.jpg',
+    photo: 'Loup_terrifiant.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
@@ -740,7 +740,7 @@ Card.create!(
     damage: 5,
     combine: true,
     draw_if_combine: 1,
-    photo: 'Bandit_des_rues.jpg',
+    photo: 'Cron_le_berserker.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
@@ -753,11 +753,11 @@ Card.create!(
     life_of_gard: 7,
     damage: 4,
     discard_enemy: 1,
-    photo: 'Bandit_des_rues.jpg',
+    photo: 'Torgen_brise_pierre.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
-    name: "Gral, geant de la tempete",
+    name: "Grak, geant de la tempete",
     collection: 'Champion',
     color: "Verte",
     price: 8,
@@ -770,7 +770,7 @@ Card.create!(
     combine: true,
     draw_if_combine: 1,
     discard_if_combine: 1,
-    photo: 'Bandit_des_rues.jpg',
+    photo: 'Grak_geant_de_la_tempete.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 puts 'Champions verts créés!!!'
