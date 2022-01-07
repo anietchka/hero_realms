@@ -488,8 +488,8 @@ Card.create!(
     photo: 'Arkus_dragon_imperial.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
-puts "Tous les champions jeune créé!!!"
-puts "Création des champions rouge"
+puts "Tous les champions jaunes créés!!!"
+puts "Création des champions rouges"
 2.times do
   Card.create!(
     name: 'Cultiste de la mort',
@@ -587,5 +587,87 @@ Card.create!(
     combine: true,
     draw_if_combine: 1,
     photo: 'Tyrannor_le_devoreur.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+puts 'Champions rouges créés!'
+puts 'Création des champions bleus'
+2.times do
+  Card.create!(
+    name: 'Bandit des rues',
+    collection: 'Champion',
+    color: "Bleue",
+    price: 3,
+    champion: true,
+    life_of_champ: 4,
+    choice: true,
+    cash_if_choice: 1,
+    damage_if_choice: 2,
+    photo: 'Cultiste_de_la_mort.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+end
+Card.create!(
+    name: 'Rasmus le contrebandier',
+    collection: 'Champion',
+    color: "Bleue",
+    price: 4,
+    champion: true,
+    life_of_champ: 5,
+    cash: 2,
+    combine: true,
+    next_card_purchased_on_top_if_combine: true,
+    photo: 'Cultiste_de_la_mort.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+Card.create!(
+    name: "Parov l'executeur",
+    collection: 'Champion',
+    color: "Bleue",
+    price: 5,
+    champion: true,
+    gard: true,
+    life_of_gard: 5,
+    damage: 3,
+    combine: true,
+    draw_if_combine: 1,
+    photo: 'Cultiste_de_la_mort.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+Card.create!(
+    name: "Myros, mage de la guilde",
+    collection: 'Champion',
+    color: "Bleue",
+    price: 5,
+    champion: true,
+    gard: true,
+    life_of_gard: 3,
+    cash: 3,
+    combine: true,
+    damage_if_combine: 4,
+    photo: 'Cultiste_de_la_mort.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+Card.create!(
+    name: "Borg mecenaire ogre",
+    collection: 'Champion',
+    color: "Bleue",
+    price: 6,
+    champion: true,
+    gard: true,
+    life_of_gard: 6,
+    damage: 4,
+    photo: 'Cultiste_de_la_mort.jpg',
+    user: User.find_by(email: "lapioche@gmail.com")
+  )
+Card.create!(
+    name: "Rake maitre assassin",
+    collection: 'Champion',
+    color: "Bleue",
+    price: 7,
+    champion: true,
+    life_of_gard: 7,
+    damage: 4,
+    knock_ou_champ: true,
+    photo: 'Cultiste_de_la_mort.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
