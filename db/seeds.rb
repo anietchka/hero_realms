@@ -602,7 +602,7 @@ puts 'Création des champions bleus'
     choice: true,
     cash_if_choice: 1,
     damage_if_choice: 2,
-    photo: 'Cultiste_de_la_mort.jpg',
+    photo: 'Bandit_des_rues.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 end
@@ -616,7 +616,7 @@ Card.create!(
     cash: 2,
     combine: true,
     next_card_purchased_on_top_if_combine: true,
-    photo: 'Cultiste_de_la_mort.jpg',
+    photo: 'Rasmus_le_contrebandier.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
@@ -630,7 +630,7 @@ Card.create!(
     damage: 3,
     combine: true,
     draw_if_combine: 1,
-    photo: 'Cultiste_de_la_mort.jpg',
+    photo: 'Parov_l_executeur.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
@@ -644,7 +644,7 @@ Card.create!(
     cash: 3,
     combine: true,
     damage_if_combine: 4,
-    photo: 'Cultiste_de_la_mort.jpg',
+    photo: 'Myros_mage_de_la_guilde.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
@@ -656,7 +656,7 @@ Card.create!(
     gard: true,
     life_of_gard: 6,
     damage: 4,
-    photo: 'Cultiste_de_la_mort.jpg',
+    photo: 'Borg_mercenaire_ogre.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
 Card.create!(
@@ -668,6 +668,6 @@ Card.create!(
     life_of_gard: 7,
     damage: 4,
     knock_ou_champ: true,
-    photo: 'Cultiste_de_la_mort.jpg',
+    photo: 'Rake_maitre_assassin.jpg',
     user: User.find_by(email: "lapioche@gmail.com")
   )
