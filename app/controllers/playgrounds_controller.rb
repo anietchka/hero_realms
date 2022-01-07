@@ -1,5 +1,6 @@
 class PlaygroundsController < ApplicationController
-  def index
-    @cards = Card.all
+
+  def show
+    @playground = Playground.find(params[:id])
   end
 end
