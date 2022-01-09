@@ -5,9 +5,42 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+Playground.destroy_all
+Player.destroy_all
+Position.destroy_all
 Card.destroy_all
 User.destroy_all
+
+puts "Création d'une aire de jeu"
+Playground.create!(name: "Hero Realms")
+puts "Aire de jeu créée!!"
+
+puts "Création des players"
+Player.create!(name: "Market", playground: Playground.find_by(name: "Hero Realms"))
+Player.create!(name: "Player_1", playground: Playground.find_by(name: "Hero Realms"), life: 50, died: false)
+Player.create!(name: "Player_2", playground: Playground.find_by(name: "Hero Realms"), life: 50, died: false)
+Player.create!(name: "Player_3", playground: Playground.find_by(name: "Hero Realms"), life: 50, died: false)
+Player.create!(name: "Player_4", playground: Playground.find_by(name: "Hero Realms"), life: 50, died: false)
+puts "Players créés!!"
+
+puts 'Création des positions'
+Position.create!(name: "Pioche", player: Player.find_by(name:"Market"))
+Position.create!(name: "Gemme de feu", player: Player.find_by(name:"Market"))
+Position.create!(name: "Cartes sacrifiées", player: Player.find_by(name:"Market"))
+Position.create(name: "Pioche_1", player: Player.find_by(name:"Player_1"))
+Position.create(name: "Defausse_1", player: Player.find_by(name:"Player_1"))
+Position.create(name: "Main_1", player: Player.find_by(name:"Player_1"))
+Position.create(name: "Pioche_2", player: Player.find_by(name:"Player_2"))
+Position.create(name: "Defausse_2", player: Player.find_by(name:"Player_2"))
+Position.create(name: "Main_2", player: Player.find_by(name:"Player_2"))
+Position.create(name: "Pioche_3", player: Player.find_by(name:"Player_3"))
+Position.create(name: "Defausse_3", player: Player.find_by(name:"Player_3"))
+Position.create(name: "Main_3", player: Player.find_by(name:"Player_3"))
+Position.create(name: "Pioche_4", player: Player.find_by(name:"Player_4"))
+Position.create(name: "Defausse_4", player: Player.find_by(name:"Player_4"))
+Position.create(name: "Main_4", player: Player.find_by(name:"Player_4"))
+
+puts 'Positions créées'
 puts 'Creer la pioche'
 User.create!(username: "Pioche",
   email: "lapioche@gmail.com",
@@ -31,7 +64,7 @@ puts 'Creating a lot of Gemme de Feu'
     throw: true,
     damage_if_throw: 3,
     photo: 'Gemme_de_feu.jpg',
-    user: User.find_by(email: "lapiochegemme@gmail.com")
+    position: Position.find_by(name: "Gemme de feu")
   )
 end
 puts 'Gemme de feu créés'
@@ -47,7 +80,7 @@ puts 'Creating Yellow Action cards'
     combine: true,
     heal_if_combine: 6,
     photo: 'Taxation.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 end
 3.times do
@@ -62,7 +95,7 @@ end
     combine: true,
     cash_if_combine: 1,
     photo: 'Recrutement.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 end
 Card.create!(
@@ -75,7 +108,7 @@ Card.create!(
     combine: true,
     heal_if_combine: 6,
     photo: 'Serrer_les_rangs.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: 'Ralliement des troupes',
@@ -87,7 +120,7 @@ Card.create!(
     combine: true,
     mobilize_champ_if_combine: true,
     photo: 'Ralliement_des_troupes.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: 'Commandement',
@@ -99,7 +132,7 @@ Card.create!(
     heal: 4,
     draw: 1,
     photo: 'Commandement.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: 'Domination',
@@ -112,7 +145,7 @@ Card.create!(
     combine: true,
     mobilize_champ_if_combine: true,
     photo: 'Domination.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: 'Parole de Puissance',
@@ -125,7 +158,7 @@ Card.create!(
     throw: true,
     damage_if_throw: 5,
     photo: 'Parole_de_puissance.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 
   puts "all Yellow Action cards create!!"
@@ -142,7 +175,7 @@ puts 'Creating Green Action cards'
     combine: true,
     damage_if_combine: 2,
     photo: 'Etincelle.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 end
 3.times do
@@ -157,7 +190,7 @@ end
     combine: true,
     damage_if_combine: 4,
     photo: 'Don_elfique.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 end
 2.times do
@@ -171,7 +204,7 @@ end
     combine: true,
     damage_if_combine: 3,
     photo: 'Malediction_elfique.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 end
 Card.create!(
@@ -185,7 +218,7 @@ Card.create!(
     throw: true,
     damage_if_throw: 4,
     photo: 'Don_de_la_nature.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: 'Forme de Loup',
@@ -197,7 +230,7 @@ Card.create!(
     throw: true,
     discard_enemy_if_throw: 1,
     photo: 'Forme_de_loup.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: 'Sauvagerie',
@@ -208,7 +241,7 @@ Card.create!(
     draw: 2,
     discard: 2,
     photo: 'Sauvagerie.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 puts 'Toutes les action vertes créées!'
 puts 'Créer toutes les actions rouge'
@@ -223,7 +256,7 @@ puts 'Créer toutes les actions rouge'
     combine: true,
     damage_if_combine: 2,
     photo: 'Contact_mortel.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 end
 3.times do
@@ -236,7 +269,7 @@ end
     throw: true,
     damage_if_throw: 3,
     photo: 'Influence.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 end
 2.times do
@@ -250,7 +283,7 @@ end
       combine: true,
       damage_if_combine: 3,
       photo: 'La_putrefaction.jpg',
-      user: User.find_by(email: "lapioche@gmail.com")
+      position: Position.find_by(name: "Pioche")
     )
 end
 Card.create!(
@@ -261,7 +294,7 @@ Card.create!(
       damage: 7,
       draw_if_combine: 1,
       photo: 'Energie_sombre.jpg',
-      user: User.find_by(email: "lapioche@gmail.com")
+      position: Position.find_by(name: "Pioche")
     )
 Card.create!(
       name: 'Sombre récompense',
@@ -273,7 +306,7 @@ Card.create!(
       combine: true,
       damage_if_combine: 6,
       photo: 'Sombre_recompense.jpg',
-      user: User.find_by(email: "lapioche@gmail.com")
+      position: Position.find_by(name: "Pioche")
     )
 Card.create!(
       name: 'Drain de vie',
@@ -285,7 +318,7 @@ Card.create!(
       combine: true,
       draw_if_combine: 1,
       photo: 'Drain_de_vie.jpg',
-      user: User.find_by(email: "lapioche@gmail.com")
+      position: Position.find_by(name: "Pioche")
     )
 puts 'Action rouges créées!'
 puts 'Créer les actions bleues'
@@ -299,7 +332,7 @@ puts 'Créer les actions bleues'
     combine: true,
     damage_if_combine: 4,
     photo: 'Benefice.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 end
 2.times do
@@ -312,7 +345,7 @@ end
     combine: true,
     cash_if_combine: 2,
     photo: 'Intimidation.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 end
 3.times do
@@ -325,7 +358,7 @@ end
     combine: true,
     next_action_purchased_on_top_if_combine: true,
     photo: 'Pot_de_vin.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 end
 Card.create!(
@@ -338,7 +371,7 @@ Card.create!(
     combine: true,
     knock_out_champ_if_combine: true,
     photo: 'Menace_de_mort.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: 'Mise à prix',
@@ -349,7 +382,7 @@ Card.create!(
     combine: true,
     knock_out_champ_if_combine: true,
     photo: 'Mise_a_prix.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: 'Fourberie',
@@ -361,7 +394,7 @@ Card.create!(
     combine: true,
     next_card_purchased_in_hand_if_combine: true,
     photo: 'Fourberie.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: 'Casser et piller',
@@ -371,7 +404,7 @@ Card.create!(
     damage: 6,
     card_discarding_on_top: true,
     photo: 'Casser_et_piller.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: 'Bombe incendiaire',
@@ -384,7 +417,7 @@ Card.create!(
     throw: true,
     damage_if_throw: 5,
     photo: 'Bombe_incendiaire.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 puts 'Actions bleues créées!!!'
 puts 'Création des champions jaunes'
@@ -400,7 +433,7 @@ puts 'Création des champions jaunes'
     cash_if_choice: 1,
     heal_for_all_champs_if_choice: 1,
     photo: 'Percepteur_de_dime.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 end
 2.times do
@@ -415,7 +448,7 @@ end
     damage: 2,
     damage_for_other_gard: 1,
     photo: 'homme_d_armes.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 end
 Card.create!(
@@ -429,7 +462,7 @@ Card.create!(
     damage: 3,
     damage_for_other_champ: 1,
     photo: 'Maitre_weyan.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: "Darian, Mage de guerre",
@@ -442,7 +475,7 @@ Card.create!(
     heal_if_choice: 4,
     damage_if_choice: 3,
     photo: 'Darian_mage_de_guerre.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: "Cristov, le juste",
@@ -457,7 +490,7 @@ Card.create!(
     combine: true,
     draw_if_combine: 1,
     photo: 'Cristov_le_juste.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: "Kraka, grand pretre",
@@ -471,7 +504,7 @@ Card.create!(
     combine: true,
     heal_for_all_champs_if_combine: 2,
     photo: 'Kraka_grand_pretre.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: "Arkus, dragon imperial",
@@ -486,7 +519,7 @@ Card.create!(
     combine: true,
     heal_if_combine: 6,
     photo: 'Arkus_dragon_imperial.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 puts "Tous les champions jaunes créés!!!"
 puts "Création des champions rouges"
@@ -501,7 +534,7 @@ puts "Création des champions rouges"
     life_of_gard: 3,
     damage: 2,
     photo: 'Cultiste_de_la_mort.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 end
 2.times do
@@ -518,7 +551,7 @@ end
     combine: true,
     damage_if_combine: 4,
     photo: 'Pretre_du_culte.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 end
 Card.create!(
@@ -532,7 +565,7 @@ Card.create!(
     combine: true,
     draw_if_combine: 1,
     photo: 'Rayla_tisseuse_de_fins.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: 'Varick, le nécromancien',
@@ -545,7 +578,7 @@ Card.create!(
     combine: true,
     draw_if_combine: 1,
     photo: 'Varrick_le_necromancien.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: "Lys, l'inapparent",
@@ -559,7 +592,7 @@ Card.create!(
     sacrify: 1,
     damage_if_sacrify: 2,
     photo: 'Lys_l_inapparent.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: "Krythos, maitre vampire",
@@ -572,7 +605,7 @@ Card.create!(
     sacrify: 1,
     damage_if_sacrify: 3,
     photo: 'Krythos_maitre_vampire.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: "Tyrannor, le dévoreur",
@@ -587,7 +620,7 @@ Card.create!(
     combine: true,
     draw_if_combine: 1,
     photo: 'Tyrannor_le_devoreur.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 puts 'Champions rouges créés!'
 puts 'Création des champions bleus'
@@ -603,7 +636,7 @@ puts 'Création des champions bleus'
     cash_if_choice: 1,
     damage_if_choice: 2,
     photo: 'Bandit_des_rues.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 end
 Card.create!(
@@ -617,7 +650,7 @@ Card.create!(
     combine: true,
     next_card_purchased_on_top_if_combine: true,
     photo: 'Rasmus_le_contrebandier.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: "Parov l'executeur",
@@ -631,7 +664,7 @@ Card.create!(
     combine: true,
     draw_if_combine: 1,
     photo: 'Parov_l_executeur.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: "Myros, mage de la guilde",
@@ -645,7 +678,7 @@ Card.create!(
     combine: true,
     damage_if_combine: 4,
     photo: 'Myros_mage_de_la_guilde.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: "Borg mecenaire ogre",
@@ -657,7 +690,7 @@ Card.create!(
     life_of_gard: 6,
     damage: 4,
     photo: 'Borg_mercenaire_ogre.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: "Rake maitre assassin",
@@ -669,7 +702,7 @@ Card.create!(
     damage: 4,
     knock_ou_champ: true,
     photo: 'Rake_maitre_assassin.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 puts 'Champions bleus créés!!'
 puts 'Création des champions verts'
@@ -684,7 +717,7 @@ puts 'Création des champions verts'
     damage: 2,
     damage_for_other_green: 1,
     photo: 'Shamane_des_loups.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 end
 2.times do
@@ -700,7 +733,7 @@ end
     combine: true,
     draw_if_combine: 1,
     photo: 'Grognard_orque.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 end
 Card.create!(
@@ -714,7 +747,7 @@ Card.create!(
     combine: true,
     discard_enemy: 1,
     photo: 'Broyelyn_tisseuse_de_savoirs.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: "Loup terrifiant",
@@ -728,7 +761,7 @@ Card.create!(
     combine: true,
     damage_if_combine: 4,
     photo: 'Loup_terrifiant.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: "Cron, le berserker",
@@ -741,7 +774,7 @@ Card.create!(
     combine: true,
     draw_if_combine: 1,
     photo: 'Cron_le_berserker.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: "Torgen brise-pierre",
@@ -754,7 +787,7 @@ Card.create!(
     damage: 4,
     discard_enemy: 1,
     photo: 'Torgen_brise_pierre.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 Card.create!(
     name: "Grak, geant de la tempete",
@@ -771,6 +804,6 @@ Card.create!(
     draw_if_combine: 1,
     discard_if_combine: 1,
     photo: 'Grak_geant_de_la_tempete.jpg',
-    user: User.find_by(email: "lapioche@gmail.com")
+    position: Position.find_by(name: "Pioche")
   )
 puts 'Champions verts créés!!!'
