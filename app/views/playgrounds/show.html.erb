@@ -1,4 +1,7 @@
 <h1><%= @playground.name %></h1>
 <% @playground.players.each do |player|%>
-  <p><%= player.name %></p>
+  <h4><%= player.name %></h4>
+    <% player.positions.each do |position|  %>
+      <h6><%= position.name %></h6>
+    <% end %>
 <% end %>

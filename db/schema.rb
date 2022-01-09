@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_07_143729) do
+ActiveRecord::Schema.define(version: 2022_01_09_221659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,7 +74,6 @@ ActiveRecord::Schema.define(version: 2022_01_07_143729) do
     t.boolean "mobilize_champ_if_combine"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
     t.string "photo"
     t.integer "damage_if_throw"
     t.integer "damage_if_combine"
@@ -93,7 +92,8 @@ ActiveRecord::Schema.define(version: 2022_01_07_143729) do
     t.boolean "next_card_purchased_on_top_if_combine"
     t.boolean "gard"
     t.boolean "champion"
-    t.index ["user_id"], name: "index_cards_on_user_id"
+    t.bigint "position_id"
+    t.index ["position_id"], name: "index_cards_on_position_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -136,7 +136,7 @@ ActiveRecord::Schema.define(version: 2022_01_07_143729) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "cards", "users"
+  add_foreign_key "cards", "positions"
   add_foreign_key "players", "playgrounds"
   add_foreign_key "positions", "players"
 end
