@@ -1,7 +1,45 @@
 <h1><%= @playground.name %></h1>
-<% @playground.players.each do |player|%>
-  <h4><%= player.name %></h4>
-    <% player.positions.each do |position|  %>
-      <h6><%= position.name %></h6>
-    <% end %>
-<% end %>
+  <h4><%= @pioche.name %></h4>
+  <% @pioche.positions.each do |position|  %>
+    <h6><%= position.name %></h6>
+    <div class="cards-card">
+      <% position.cards.each do |card|%>
+        <div class="card-image">
+          <%= image_tag card.photo %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <h4><%= @player1.name %></h4>
+  <% @player1.positions.each do |position|  %>
+    <h6><%= position.name %></h6>
+    <div class="cards-card">
+      <% position.cards.each do |card|%>
+        <div class="card-image">
+          <%= image_tag card.photo %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <h4><%= @player2.name %></h4>
+  <% @player2.positions.each do |position|  %>
+    <h6><%= position.name %></h6>
+    <div class="cards-card">
+      <% position.cards.each do |card|%>
+        <div class="card-image">
+          <%= image_tag card.photo %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <h4><%= @player4.name %></h4>
+  <% @player4.positions.each do |position|  %>
+    <h6><%= position.name %></h6>
+    <div class="cards-card">
+      <% position.cards.each do |card|%>
+        <div class="card-image">
+          <%= image_tag card.photo %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
