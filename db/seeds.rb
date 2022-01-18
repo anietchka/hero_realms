@@ -55,7 +55,7 @@ Card.create!(
   collection: "Objet",
   color: "Aucune",
   damage: 2,
-  photo: "Dague.jpg",
+  photo: "Epee_courte.jpg",
   position: Position.find_by(name: "Pioche_1")
 )
 Card.create!(
@@ -63,7 +63,7 @@ Card.create!(
   collection: "Objet",
   color: "Aucune",
   cash: 2,
-  photo: "Dague.jpg",
+  photo: "Rubis.jpg",
   position: Position.find_by(name: "Pioche_1")
 )
 7.times do
@@ -72,11 +72,47 @@ Card.create!(
   collection: "Objet",
   color: "Aucune",
   cash: 1,
-  photo: "Dague.jpg",
+  photo: "Or.jpg",
   position: Position.find_by(name: "Pioche_1")
 )
 end
 puts 'Deck de base joueur 1 créé'
+puts 'Création deck de base joueur 2'
+Card.create!(
+  name: "Dague",
+  collection: "Objet",
+  color: "Aucune",
+  damage: 1,
+  photo: "Dague.jpg",
+  position: Position.find_by(name: "Pioche_2")
+)
+Card.create!(
+  name: "Epée courte",
+  collection: "Objet",
+  color: "Aucune",
+  damage: 2,
+  photo: "Epee_courte.jpg",
+  position: Position.find_by(name: "Pioche_2")
+)
+Card.create!(
+  name: "Rubis",
+  collection: "Objet",
+  color: "Aucune",
+  cash: 2,
+  photo: "Rubis.jpg",
+  position: Position.find_by(name: "Pioche_2")
+)
+7.times do
+  Card.create!(
+  name: "Or",
+  collection: "Objet",
+  color: "Aucune",
+  cash: 1,
+  photo: "Or.jpg",
+  position: Position.find_by(name: "Pioche_2")
+)
+end
+puts 'Deck de base joueur 2 créé'
 
 puts 'Creating a lot of Gemme de Feu'
 2.times do
