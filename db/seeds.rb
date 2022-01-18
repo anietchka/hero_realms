@@ -113,6 +113,42 @@ Card.create!(
 )
 end
 puts 'Deck de base joueur 2 créé'
+puts 'Création deck de base joueur 3'
+Card.create!(
+  name: "Dague",
+  collection: "Objet",
+  color: "Aucune",
+  damage: 1,
+  photo: "Dague.jpg",
+  position: Position.find_by(name: "Pioche_3")
+)
+Card.create!(
+  name: "Epée courte",
+  collection: "Objet",
+  color: "Aucune",
+  damage: 2,
+  photo: "Epee_courte.jpg",
+  position: Position.find_by(name: "Pioche_3")
+)
+Card.create!(
+  name: "Rubis",
+  collection: "Objet",
+  color: "Aucune",
+  cash: 2,
+  photo: "Rubis.jpg",
+  position: Position.find_by(name: "Pioche_3")
+)
+7.times do
+  Card.create!(
+  name: "Or",
+  collection: "Objet",
+  color: "Aucune",
+  cash: 1,
+  photo: "Or.jpg",
+  position: Position.find_by(name: "Pioche_3")
+)
+end
+puts 'Deck de base joueur 3 créé'
 
 puts 'Creating a lot of Gemme de Feu'
 2.times do
