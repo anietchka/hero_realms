@@ -1,0 +1,6 @@
+<h1>Tous les jeux</h1>
+<% @playgrounds.each do |playground| %>
+  <%= link_to(playground_path(playground)) do  %>
+  <p><%=  playground.name%></p>
+  <% end %>
+<% end %>
