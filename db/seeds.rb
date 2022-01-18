@@ -41,17 +41,42 @@ Position.create(name: "Defausse_4", player: Player.find_by(name:"Player_4"))
 Position.create(name: "Main_4", player: Player.find_by(name:"Player_4"))
 
 puts 'Positions créées'
-puts 'Creer la pioche'
-User.create!(username: "Pioche",
-  email: "lapioche@gmail.com",
-  password: "123456")
-puts 'Pioche crée!!'
-
-puts 'Creer la pioche de gemmes'
-User.create!(username: "Pioche de Gemme",
-  email: "lapiochegemme@gmail.com",
-  password: "123456")
-puts 'Pioche de gemmes créée'
+puts 'Création deck de base joueur 1'
+Card.create!(
+  name: "Dague",
+  collection: "Objet",
+  color: "Aucune",
+  damage: 1,
+  photo: "Dague.jpg",
+  position: Position.find_by(name: "Pioche_1")
+)
+Card.create!(
+  name: "Epée courte",
+  collection: "Objet",
+  color: "Aucune",
+  damage: 2,
+  photo: "Dague.jpg",
+  position: Position.find_by(name: "Pioche_1")
+)
+Card.create!(
+  name: "Rubis",
+  collection: "Objet",
+  color: "Aucune",
+  cash: 2,
+  photo: "Dague.jpg",
+  position: Position.find_by(name: "Pioche_1")
+)
+7.times do
+  Card.create!(
+  name: "Or",
+  collection: "Objet",
+  color: "Aucune",
+  cash: 1,
+  photo: "Dague.jpg",
+  position: Position.find_by(name: "Pioche_1")
+)
+end
+puts 'Deck de base joueur 1 créé'
 
 puts 'Creating a lot of Gemme de Feu'
 2.times do
